@@ -1,0 +1,218 @@
+name: Autograding Tests
+'on':
+- push
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: first challenge test 1
+      id: first-challenge-test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: first challenge test 1
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/firstChallenge.xcplaygroundpage/Contents.swift
+          3 6 2 7 9 1
+        input: ''
+        expected-output: "[1, 2, 3, 6, 7, 9]"
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: second challenge test 1
+      id: second-challenge-test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: second challenge test 1
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/secondChallenge.xcplaygroundpage/Contents.swift
+          3
+        input: ''
+        expected-output: "I love closures\r\nI love closures\r\nI love closures"
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: second challenge test 2
+      id: second-challenge-test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: second challenge test 2
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/secondChallenge.xcplaygroundpage/Contents.swift
+          5
+        input: ''
+        expected-output: "I love closures\r\nI love closures\r\nI love closures\r\nI
+          love closures\r\nI love closures"
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: third challenge test 1
+      id: third-challenge-test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: third challenge test 1
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/thirdChallenge.xcplaygroundpage/Contents.swift
+          1 2 3 4 5 6 8 9 10 11 12 13 14 15
+        input: ''
+        expected-output: "[5, 10, 15]"
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: third challenge test 2
+      id: third-challenge-test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: third challenge test 2
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/thirdChallenge.xcplaygroundpage/Contents.swift
+          1 2 3 4
+        input: ''
+        expected-output: "[]"
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: fourth challenge test 1
+      id: fourth-challenge-test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: fourth challenge test 1
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/fourthChallenge.xcplaygroundpage/Contents.swift
+          1 2 3 4 5 6 7
+        input: ''
+        expected-output: '7'
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: fourth challenge test 2
+      id: fourth-challenge-test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: fourth challenge test 2
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/fourthChallenge.xcplaygroundpage/Contents.swift
+          100 20 234 11 56
+        input: ''
+        expected-output: '234'
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: fifth challenge test 1
+      id: fifth-challenge-test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: fifth challenge test 1
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/fifthChallenge.xcplaygroundpage/Contents.swift
+          I love functional programming
+        input: ''
+        expected-output: I love functional programming
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: fifth challenge test 2
+      id: fifth-challenge-test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: fifth challenge test 2
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/fifthChallenge.xcplaygroundpage/Contents.swift
+          this is a test string
+        input: ''
+        expected-output: this is a test string
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: sixth challenge test 1
+      id: sixth-challenge-test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: sixth challenge test 1
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/sixthChallenge.xcplaygroundpage/Contents.swift
+          1 2 3 4 5 6
+        input: ''
+        expected-output: '35'
+        comparison-method: exact
+        timeout: 2
+        max-score: 10
+    - name: sixth challenge test 2
+      id: sixth-challenge-test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: sixth challenge test 2
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/sixthChallenge.xcplaygroundpage/Contents.swift
+          4 5 3 2 6 7
+        input: ''
+        expected-output: '83'
+        comparison-method: exact
+        timeout: 2
+        max-score: 10
+    - name: seventh challenge test 1
+      id: seventh-challenge-test-1
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: seventh challenge test 1
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/seventhChallenge.xcplaygroundpage/Contents.swift
+          1,2,3,4 5,5,5,3
+        input: ''
+        expected-output: "[5, 10, 15, 12]"
+        comparison-method: exact
+        timeout: 2
+        max-score: 15
+    - name: seventh challenge test 2
+      id: seventh-challenge-test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: seventh challenge test 2
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/seventhChallenge.xcplaygroundpage/Contents.swift
+          4,5,1,3,6 2,2,5,6,8
+        input: ''
+        expected-output: "[8, 10, 5, 18, 48]"
+        comparison-method: exact
+        timeout: 2
+        max-score: 15
+    - name: first challenge test 2
+      id: first-challenge-test-2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: first challenge test 2
+        setup-command: ''
+        command: swift closureExercises.playground/Pages/firstChallenge.xcplaygroundpage/Contents.swift
+          10 23 45 6 7 1
+        input: ''
+        expected-output: "[1, 6, 7, 10, 23, 45]"
+        comparison-method: exact
+        timeout: 2
+        max-score: 5
+    - name: Autograding Reporter
+      uses: education/autograding-grading-reporter@v1
+      env:
+        FIRST-CHALLENGE-TEST-1_RESULTS: "${{steps.first-challenge-test-1.outputs.result}}"
+        SECOND-CHALLENGE-TEST-1_RESULTS: "${{steps.second-challenge-test-1.outputs.result}}"
+        SECOND-CHALLENGE-TEST-2_RESULTS: "${{steps.second-challenge-test-2.outputs.result}}"
+        THIRD-CHALLENGE-TEST-1_RESULTS: "${{steps.third-challenge-test-1.outputs.result}}"
+        THIRD-CHALLENGE-TEST-2_RESULTS: "${{steps.third-challenge-test-2.outputs.result}}"
+        FOURTH-CHALLENGE-TEST-1_RESULTS: "${{steps.fourth-challenge-test-1.outputs.result}}"
+        FOURTH-CHALLENGE-TEST-2_RESULTS: "${{steps.fourth-challenge-test-2.outputs.result}}"
+        FIFTH-CHALLENGE-TEST-1_RESULTS: "${{steps.fifth-challenge-test-1.outputs.result}}"
+        FIFTH-CHALLENGE-TEST-2_RESULTS: "${{steps.fifth-challenge-test-2.outputs.result}}"
+        SIXTH-CHALLENGE-TEST-1_RESULTS: "${{steps.sixth-challenge-test-1.outputs.result}}"
+        SIXTH-CHALLENGE-TEST-2_RESULTS: "${{steps.sixth-challenge-test-2.outputs.result}}"
+        SEVENTH-CHALLENGE-TEST-1_RESULTS: "${{steps.seventh-challenge-test-1.outputs.result}}"
+        SEVENTH-CHALLENGE-TEST-2_RESULTS: "${{steps.seventh-challenge-test-2.outputs.result}}"
+        FIRST-CHALLENGE-TEST-2_RESULTS: "${{steps.first-challenge-test-2.outputs.result}}"
+      with:
+        runners: first-challenge-test-1,second-challenge-test-1,second-challenge-test-2,third-challenge-test-1,third-challenge-test-2,fourth-challenge-test-1,fourth-challenge-test-2,fifth-challenge-test-1,fifth-challenge-test-2,sixth-challenge-test-1,sixth-challenge-test-2,seventh-challenge-test-1,seventh-challenge-test-2,first-challenge-test-2
