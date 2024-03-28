@@ -8,8 +8,9 @@ import Foundation
 let numbers: [Int] = Array(CommandLine.arguments.dropFirst()).map { Int($0)! }
 //let numbers = [1, 2, 3, 4, 5, 6, 7]
 
-
+let largestNumber = numbers.reduce(numbers[0]) { (accumulator, number) in
+    return max(accumulator, number)
+}
 // Print the resulting value
 
-
-
+print(largestNumber)

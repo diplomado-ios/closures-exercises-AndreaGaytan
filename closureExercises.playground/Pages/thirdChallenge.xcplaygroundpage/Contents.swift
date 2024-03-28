@@ -10,6 +10,10 @@ let numbers: [Int] = Array(CommandLine.arguments.dropFirst()).map { Int($0)! }
 
 
 // Print the resulting array
+let sortedNumbers = numbers.filter { (sorted: Int) in
+    return sorted % 5 == 0
+}
 
+print(sortedNumbers)
 
 
