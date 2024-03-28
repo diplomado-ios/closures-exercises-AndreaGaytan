@@ -10,5 +10,12 @@ let N: Int = Int(CommandLine.arguments[1])!
 
 
 // Print the resulting message
+func applyClosureNTimes(N: Int)  {
+    for i in 0 ..< N {
+        print("I love closures")
+    }
+    
+}
 
+applyClosureNTimes(N: N)
 
