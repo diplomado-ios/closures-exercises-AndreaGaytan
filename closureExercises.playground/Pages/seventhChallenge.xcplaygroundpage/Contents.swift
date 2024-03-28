@@ -12,6 +12,11 @@ let second: [Int] = CommandLine.arguments[2].split(separator: ",").map { Int($0)
 
 
 // Print the resulting array
+func combine (first: [Int], second: [Int]) {
+        print( zip(first,second).map() {$0 * $1})
+    }
 
+
+combine(first: first, second: second)
 
 
