@@ -10,6 +10,9 @@ let strings: [String] = Array(CommandLine.arguments.dropFirst())
 
 
 // Print the resulting string
-
+let enunciadoConcatenado = strings.reduce("") { union, elemento in
+    return union + elemento + " "
+}
+print(enunciadoConcatenado)
 
 

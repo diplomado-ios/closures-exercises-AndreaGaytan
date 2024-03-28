@@ -10,6 +10,13 @@ let numbers: [Int] = Array(CommandLine.arguments.dropFirst()).map { Int($0)! }
 
 
 // Print the resulting value
+let oddFilter = numbers.filter { $0 % 2 != 0 }
+let square = oddFilter.map { $0 * $0 }
+let total = square.reduce(0, +)
+// Print the resulting value
 
+//print(oddFilter)
+//print(square)
+print(total)
 
 
